@@ -23,6 +23,10 @@
   height: 42px;
 }
 
+#send {
+  margin-top: 12px;
+}
+
 input.text {
   width: 150px;
 }
