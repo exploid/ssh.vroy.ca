@@ -37,7 +37,8 @@ class MainController < Ramaze::Controller
     result = h(result) # sanitize the output
 
     result.gsub!("\r\n", "<br/>")
-    result.gsub!("\t", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    result.gsub!("\t", "        ")
+    result.gsub!(" ", "&nbsp;")
     session[:pwd].gsub!("\r\n", "")
     
     return { :result => result, :pwd => session[:pwd] }.to_json
