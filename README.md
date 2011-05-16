@@ -1,6 +1,6 @@
 # ssh.vroy.ca - Connect to a linux server via ssh, from your browser.
 
-*Disclaimer:*
+**Disclaimer:**
 
 * Absolutely no guarantees - use at your own risk.
 * Your password is not stored anywhere - you will be prompted for your password if necessary.
