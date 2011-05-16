@@ -1,0 +1,23 @@
+<input type="hidden" id="host_name" value="#{session[:credentials][:host_name]}" />
+<input type="hidden" id="user" value="#{session[:credentials][:user]}" />
+<input type="hidden" id="port" value="#{session[:credentials][:port]}" />
+<input type="hidden" id="pwd" value="#{session[:pwd]}" />
+
+<!-- <div class="span-24"> -->
+  <!-- <div class="info"> -->
+    <!-- Connected to <b>#{session[:username]}@#{session[:host]}:#{session[:port]}</b> -->
+  <!-- </div> -->
+<!-- </div> -->
+
+<div class="span-24">
+  <div id="screen">
+    #{@result}
+  </div>
+</div>
+
+<div class="span-22">
+  <textarea id="input"></textarea>
+</div>
+<div class="span-2 last">
+  <button type="button" id="send" class="button blue">Send</button>
+</div>

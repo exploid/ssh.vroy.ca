@@ -1,0 +1,27 @@
+<div class="prepend-9 span-6 append-9">
+  <form action="#{Rs(:connect)}" method="POST">
+    <table class="connect_form">
+      <tr>
+        <th>Host:</th>
+        <td><input type="text" class="text" id="host_name" name="host_name" value="" /></td>
+      </tr>
+      <tr>
+        <th>Username:</th>
+        <td><input type="text" class="text" id="user" name="user" value="" /></td>
+      </tr>
+      <tr>
+        <th>Password:</th>
+        <td><input type="password" class="text" id="password" name="password" value="" /></td>
+      </tr>
+      <tr>
+        <th>Port:</th>
+        <td><input type="text" class="text" id="port" name="port" value="22" /></td>
+      </tr>
+      <tr>
+        <td class="connect" colspan="2">
+          <button type="submit" id="connect" class="button blue">Connect</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
