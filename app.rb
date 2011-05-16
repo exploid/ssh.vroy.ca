@@ -13,7 +13,8 @@ require "net/ssh/shell"
 class Net::SSH::Shell
   # Method that returns the [exit_status, string_result] of a command.
   def exec!(cmd)
-    cmd = "sh -c #{cmd}" if cmd !~ /^cd /
+    # For now, just make sure that there are no colors in the ls output
+    cmd.gsub!(/^ls ?/, "ls --color=none ")
     result = ""
     res = self.execute( cmd ) do |c|
       c.on_output do |process, string|
