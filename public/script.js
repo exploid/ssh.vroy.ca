@@ -14,6 +14,8 @@ $(document).ready(function(){
                 });
         }
 
+        $("#input").focus();
+
         /* *********************************************************** EVENTS */
         $("#input").keydown(function(e) {
                 if ( e.keyCode == 13 && !e.shiftKey ) { // enter
