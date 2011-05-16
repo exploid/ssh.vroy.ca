@@ -33,11 +33,13 @@ class MainController < Ramaze::Controller
     
     exit_status, result = session[:shell].exec!( command )
     session[:pwd] = session[:shell].exec!("pwd").last
-    
-    result.gsub!("\r\n", "<br/>")
-    result.gsub!("\t", " ")
-    session[:pwd].gsub!("\r\n", "")
 
+    result = h(result) # sanitize the output
+
+    result.gsub!("\r\n", "<br/>")
+    result.gsub!("\t", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    session[:pwd].gsub!("\r\n", "")
+    
     return { :result => result, :pwd => session[:pwd] }.to_json
   rescue Exception => e
     puts e
