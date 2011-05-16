@@ -6,6 +6,14 @@ $(document).ready(function(){
 
         appendPromptString();
 
+        if ( window.location.pathname == "/ssh" ) {
+            // Inject a disconnect button in the header when connected.
+            $("#header div h2").html('<button id="disconnect" class="button blue">Disconnect</button>');
+            $("#disconnect").click(function() {
+                    window.location = "/disconnect";
+                });
+        }
+
         /* *********************************************************** EVENTS */
         $("#input").keydown(function(e) {
                 if ( e.keyCode == 13 && !e.shiftKey ) { // enter

@@ -23,6 +23,11 @@ class MainController < Ramaze::Controller
     flash[:error] = e.message
     redirect_referer
   end
+
+  def disconnect
+    session.clear
+    redirect Rs()
+  end
   
   def ssh
   end
