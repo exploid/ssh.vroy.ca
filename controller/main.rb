@@ -6,17 +6,24 @@ class MainController < Ramaze::Controller
   end
 
   def connect
+    # Gather credentials required for connecting and re-connecting
     creds = {}
     keys = [ :host_name, :user, :password, :port ]
     request[ *keys ].each_with_index do |value, index|
       key = keys[ index ]
       creds[key] = value
     end
-      
-    session[:credentials] = creds
+
+    # Connect
     session[:connection] = Net::SSH.start(nil, nil, creds)
     session[:shell] = session[:connection].shell
+
+    # Get pwd for first prompt display
     session[:pwd] = session[:shell].exec!("pwd").last.gsub("\r\n", "")
+
+    # Do not store password along with the credentials
+    creds.delete(:password)
+    session[:credentials] = creds
 
     redirect Rs(:ssh)
   rescue Exception => e
